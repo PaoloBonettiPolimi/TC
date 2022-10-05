@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+data/training_real_tom_target.csv
+data/test_real_tom_target.csv
+data/validation_real_tom_target.csv
