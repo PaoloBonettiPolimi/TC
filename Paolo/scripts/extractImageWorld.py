@@ -57,19 +57,19 @@ if __name__ == "__main__":
 
     train = pd.read_csv(args.train_path)
     print('train loaded')
-    val = pd.read_csv(args.val_path)
-    print('val loaded')
-    test = pd.read_csv(args.test_path)
-    print('test loaded')
+    #val = pd.read_csv(args.val_path)
+    #print('val loaded')
+    #test = pd.read_csv(args.test_path)
+    #print('test loaded')
 
     ##################### shear ########################
 
     train['shear'] = np.sqrt((train['u_200']-train['u_850'])**2 + (train['v_200']-train['v_850'])**2)
     print('train shear computed')
-    val['shear'] = np.sqrt((val['u_200']-val['u_850'])**2 + (val['v_200']-val['v_850'])**2)
-    print('val shear computed')
-    test['shear'] = np.sqrt((test['u_200']-test['u_850'])**2 + (test['v_200']-test['v_850'])**2)
-    print('test shear computed')
+    #val['shear'] = np.sqrt((val['u_200']-val['u_850'])**2 + (val['v_200']-val['v_850'])**2)
+    #print('val shear computed')
+    #test['shear'] = np.sqrt((test['u_200']-test['u_850'])**2 + (test['v_200']-test['v_850'])**2)
+    #print('test shear computed')
 
     ##################### standardization ########################
 
@@ -78,25 +78,25 @@ if __name__ == "__main__":
 
     train[cols_to_std] = scaler.fit_transform(train[[ 'vo', 'r', 'u_200', 'u_850', 'v_200','v_850', 'ttr','sst','shear']])
     print('train standardized')
-    val[cols_to_std] = scaler.transform(val[[ 'vo', 'r', 'u_200', 'u_850', 'v_200','v_850', 'ttr','sst','shear']])
-    print('val standardized')
-    test[cols_to_std] = scaler.transform(test[[ 'vo', 'r', 'u_200', 'u_850', 'v_200','v_850', 'ttr','sst','shear']])
-    print('test standardized')
+    #val[cols_to_std] = scaler.transform(val[[ 'vo', 'r', 'u_200', 'u_850', 'v_200','v_850', 'ttr','sst','shear']])
+    #print('val standardized')
+    #test[cols_to_std] = scaler.transform(test[[ 'vo', 'r', 'u_200', 'u_850', 'v_200','v_850', 'ttr','sst','shear']])
+    #print('test standardized')
 
     ##################### extract images and save ########################
 
     variables = ['time', 'latitude', 'longitude', 'vo', 'r', 'u_200', 'u_850', 'v_200', 'v_850', 'ttr', 'sst', 'shear']
-    #new_train_img =  extract_images_new(train.loc[:,variables], 9, verbose=True)
-    #with open(args.results_train, 'wb') as f:  
-    #    pickle.dump(new_train_img, f)
+    new_train_img =  extract_images_new(train.loc[:,variables], 9, verbose=True)
+    with open(args.results_train, 'wb') as f:  
+        pickle.dump(new_train_img, f)
 
-    new_val_img =  extract_images_new(val.loc[:,variables], 9, verbose=True)
-    with open(args.results_val, 'wb') as f:  
-        pickle.dump(new_val_img, f)
+    #new_val_img =  extract_images_new(val.loc[:,variables], 9, verbose=True)
+    #with open(args.results_val, 'wb') as f:  
+    #    pickle.dump(new_val_img, f)
 
-    new_test_img =  extract_images_new(test.loc[:,variables], 9, verbose=True)
-    with open(args.results_test, 'wb') as f:  
-        pickle.dump(new_test_img, f)
+    #new_test_img =  extract_images_new(test.loc[:,variables], 9, verbose=True)
+    #with open(args.results_test, 'wb') as f:  
+    #    pickle.dump(new_test_img, f)
     
     
 
