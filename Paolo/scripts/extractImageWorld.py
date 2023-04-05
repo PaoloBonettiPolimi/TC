@@ -2,7 +2,8 @@
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
-scaler = StandardScaler()
+import pickle
+import argparse
 
 def extract_images_all(df, variables, verbose=False):
     number_of_img, rows, cols = len(df.time.unique()), len(df.latitude.unique()), len(df.longitude.unique())
@@ -74,6 +75,7 @@ if __name__ == "__main__":
     ##################### standardization ########################
 
     cols_to_std = [ 'vo', 'r', 'u_200', 'u_850', 'v_200','v_850', 'ttr','sst','shear']
+    scaler = StandardScaler()
 
     train[cols_to_std] = scaler.fit_transform(train[[ 'vo', 'r', 'u_200', 'u_850', 'v_200','v_850', 'ttr','sst','shear']])
     print('train standardized')
