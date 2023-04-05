@@ -42,13 +42,13 @@ def extract_images_new(df, n_filters, verbose=False):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--results_train", default='/data/tropical/train_world_img.pkl')
-    parser.add_argument("--results_val", default='/data/tropical/val_world_img.pkl')
-    parser.add_argument("--results_test", default='/data/tropical/test_world_img.pkl')
+    parser.add_argument("--results_train", default='/data/cmcc/train_world_img.pkl')
+    parser.add_argument("--results_val", default='/data/cmcc/val_world_img.pkl')
+    parser.add_argument("--results_test", default='/data/cmcc/test_world_img.pkl')
 
-    parser.add_argument("--train_path", default='/data/cmcc/training_world.csv')
-    parser.add_argument("--val_path", default='/data/cmcc/training_world.csv')
-    parser.add_argument("--test_path", default='/data/cmcc/training_world.csv')
+    parser.add_argument("--train_path", default='/data/tropical/training_world.csv')
+    parser.add_argument("--val_path", default='/data/tropical/training_world.csv')
+    parser.add_argument("--test_path", default='/data/tropical/training_world.csv')
 
     args = parser.parse_args()
     print(args)
