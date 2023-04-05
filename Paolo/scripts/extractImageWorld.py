@@ -42,7 +42,6 @@ def extract_images_new(df, n_filters, verbose=False):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--n_repetitions", default=5, type=int)
     parser.add_argument("--results_train", default='/data/tropical/train_world_img.pkl')
     parser.add_argument("--results_val", default='/data/tropical/val_world_img.pkl')
     parser.add_argument("--results_test", default='/data/tropical/test_world_img.pkl')
@@ -56,11 +55,11 @@ if __name__ == "__main__":
 
     ##################### load csv ########################
 
-    train = pd.read_csv(train_path)
+    train = pd.read_csv(args.train_path)
     print('train loaded')
-    val = pd.read_csv(val_path)
+    val = pd.read_csv(args.val_path)
     print('val loaded')
-    test = pd.read_csv(test_path)
+    test = pd.read_csv(args.test_path)
     print('test loaded')
 
     ##################### shear ########################
