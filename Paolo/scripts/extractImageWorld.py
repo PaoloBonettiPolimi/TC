@@ -47,8 +47,8 @@ if __name__ == "__main__":
     parser.add_argument("--results_test", default='/data/cmcc/test_world_img.pkl')
 
     parser.add_argument("--train_path", default='/data/tropical/training_world.csv')
-    parser.add_argument("--val_path", default='/data/tropical/training_world.csv')
-    parser.add_argument("--test_path", default='/data/tropical/training_world.csv')
+    parser.add_argument("--val_path", default='/data/tropical/val_world.csv')
+    parser.add_argument("--test_path", default='/data/tropical/test_world.csv')
 
     args = parser.parse_args()
     print(args)
