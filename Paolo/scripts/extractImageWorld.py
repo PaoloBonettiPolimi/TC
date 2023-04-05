@@ -46,9 +46,9 @@ if __name__ == "__main__":
     parser.add_argument("--results_val", default='/data/tropical/val_world_img.pkl')
     parser.add_argument("--results_test", default='/data/tropical/test_world_img.pkl')
 
-    parser.add_argument("--train_path", default='/data/tropical/training_world.csv')
-    parser.add_argument("--val_path", default='/data/tropical/training_world.csv')
-    parser.add_argument("--test_path", default='/data/tropical/training_world.csv')
+    parser.add_argument("--train_path", default='/data/cmcc/training_world.csv')
+    parser.add_argument("--val_path", default='/data/cmcc/training_world.csv')
+    parser.add_argument("--test_path", default='/data/cmcc/training_world.csv')
 
     args = parser.parse_args()
     print(args)
@@ -86,9 +86,9 @@ if __name__ == "__main__":
     ##################### extract images and save ########################
 
     variables = ['time', 'latitude', 'longitude', 'vo', 'r', 'u_200', 'u_850', 'v_200', 'v_850', 'ttr', 'sst', 'shear']
-    new_train_img =  extract_images_new(train.loc[:,variables], 9, verbose=True)
-    with open(args.results_train, 'wb') as f:  
-        pickle.dump(new_train_img, f)
+    #new_train_img =  extract_images_new(train.loc[:,variables], 9, verbose=True)
+    #with open(args.results_train, 'wb') as f:  
+    #    pickle.dump(new_train_img, f)
 
     new_val_img =  extract_images_new(val.loc[:,variables], 9, verbose=True)
     with open(args.results_val, 'wb') as f:  
