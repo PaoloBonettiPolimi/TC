@@ -66,7 +66,6 @@ from sklearn.utils.class_weight import compute_sample_weight
 import pickle
 from keras.layers import Conv2DTranspose as DeConv
 
-%matplotlib inline
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
 from sklearn.metrics import confusion_matrix
@@ -101,7 +100,7 @@ def Generator(File_address, target_address, year_start, year_end, lag):
     while True:
         i=0
         for year in range(year_start,year_end+1):
-            X = np.load(File_address+str(year)+'/img_'+str(year)+'.npy')
+            X = np.load(File_address+'img_'+str(year)+'.npy')
             Y = pickle_target[i+lag:i+X.shape[0]] 
             i += X.shape[0]
             X = X[:-lag,:,:,:-1]
@@ -143,8 +142,8 @@ def evaluate_perf(t,test_outputs,day=0):
     one_day_t = t
     one_day_y = test_outputs
     
-    ranges = [0.025,0.05,0.075,0.1]
-    
+    #ranges = [0.025,0.05,0.075,0.1]
+    ranges = [0.025]
     for j in ranges:
         classes = []
         for i in one_day_t.reshape(-1,1):
@@ -152,31 +151,30 @@ def evaluate_perf(t,test_outputs,day=0):
             else: classes.append(1)
     
     # confusion matrix with threshold on 0.1, otherwise always 0 
-        ConfusionMatrixDisplay(confusion_matrix(one_day_y.reshape(-1,1), classes)).plot(colorbar=False,cmap=plt.cm.Blues, values_format='d')
-        ConfusionMatrixDisplay(confusion_matrix(one_day_y.reshape(-1,1), classes, normalize='true')).plot(colorbar=False,cmap=plt.cm.Blues)
+        #ConfusionMatrixDisplay(confusion_matrix(one_day_y.reshape(-1,1), classes)).plot(colorbar=False,cmap=plt.cm.Blues, values_format='d')
+        #ConfusionMatrixDisplay(confusion_matrix(one_day_y.reshape(-1,1), classes, normalize='true')).plot(colorbar=False,cmap=plt.cm.Blues)
     
-    plot_roc(one_day_t.reshape(-1,1),one_day_y.reshape(-1,1))
+    #plot_roc(one_day_t.reshape(-1,1),one_day_y.reshape(-1,1))
     
     display = CalibrationDisplay.from_predictions(one_day_y.reshape(-1,1), one_day_t.reshape(-1,1), n_bins=10)
 
     print(f'All zeros Brier score: {brier_score_loss(one_day_y.reshape(-1,1), np.zeros(len(one_day_y.reshape(-1,1))))}')
     print(f'Model Brier score: {brier_score_loss(one_day_y.reshape(-1,1), one_day_t.reshape(-1,1))}')
-    
 
 
 if __name__ == "__main__":
 
-    x2016 = np.load('/data/tropical/images_extracted/test_stdwith2015/imgs/2016/img_2016.npy')
+    x2016 = np.load('/Users/paolo/Documents/TC_old/data/earth_features/test_imgs/2016/img_2016.npy')
     x2016 = x2016[91:]
-    x2017 = np.load('/data/tropical/images_extracted/test_stdwith2015/imgs/2017/img_2017.npy')
-    x2018 = np.load('/data/tropical/images_extracted/test_stdwith2015/imgs/2018/img_2018.npy')
-    x2019 = np.load('/data/tropical/images_extracted/test_stdwith2015/imgs/2019/img_2019.npy')
-    x2020 = np.load('/data/tropical/images_extracted/test_stdwith2015/imgs/2020/img_2020.npy')
-    x2021 = np.load('/data/tropical/images_extracted/test_stdwith2015/imgs/2021/img_2021.npy')
-    x2022 = np.load('/data/tropical/images_extracted/test_stdwith2015/imgs/2022/img_2022.npy')
-    test_target = pd.read_pickle('/home/cmcc/TC/Paolo/data/test_target_img.pkl')
+    x2017 = np.load('/Users/paolo/Documents/TC_old/data/earth_features/test_imgs/2017/img_2017.npy')
+    x2018 = np.load('/Users/paolo/Documents/TC_old/data/earth_features/test_imgs/2018/img_2018.npy')
+    x2019 = np.load('/Users/paolo/Documents/TC_old/data/earth_features/test_imgs/2019/img_2019.npy')
+    x2020 = np.load('/Users/paolo/Documents/TC_old/data/earth_features/test_imgs/2020/img_2020.npy')
+    x2021 = np.load('/Users/paolo/Documents/TC_old/data/earth_features/test_imgs/2021/img_2021.npy')
+    x2022 = np.load('/Users/paolo/Documents/TC_old/data/earth_features/test_imgs/2022/img_2022.npy')
+    test_target = pd.read_pickle('/Users/paolo/Desktop/TC_world/test_target_img.pkl')
 
-    for lag in [2,3,4,5,6,7,8,9,10,11,12,13]:
+    for lag in [6,7,8,9,10,11,12,13]: #[2,3,4,5,6,7,8,9,10,11,12,13]:
     
         input_layer = Input(shape=(73,144, 9))
 
@@ -208,11 +206,11 @@ if __name__ == "__main__":
         monitor = EarlyStopping(monitor='val_loss', min_delta=1e-5, patience=5, 
                 verbose=1, mode='auto', restore_best_weights=True)
         
-        train_path = '/data/tropical/images_extracted/imgs/'
-        train_target_path = '/home/cmcc/TC/Paolo/data/train_target_img.pkl'
-        val_path = '/data/tropical/images_extracted/val/imgs/'
-        val_target_path = '/home/cmcc/TC/Paolo/data/val_target_img.pkl'
-        
+        train_path = '/Users/paolo/Documents/TC_old/data/earth_features/train_imgs/'
+        train_target_path = '/Users/paolo/Desktop/TC_world/train_target_img.pkl'
+        val_path = '/Users/paolo/Documents/TC_old/data/earth_features/val_imgs/'
+        val_target_path = '/Users/paolo/Desktop/TC_world/val_target_img.pkl'
+
         train_gen = Generator(train_path, train_target_path, 1980, 2010, lag)
         val_gen = Generator(val_path, val_target_path, 2011, 2015, lag)
         
@@ -230,8 +228,8 @@ if __name__ == "__main__":
         
         evaluate_perf(t,test_target[lag:],day=0)
         
-        test = pd.read_csv('/data/cmcc/test_with_newTarget_predictions_CNNglobal_ResNet.csv')
+        test = pd.read_csv('test_with_newTarget_predictions_CNNglobal_ResNet.csv')
         z = np.zeros((lag,13,29,1))
         tt = np.concatenate((t,z))
         test['predictions_lag'+str(lag)] = tt.reshape(-1,1)
-        test.to_csv("/data/cmcc/test_with_newTarget_predictions_CNNglobal_ResNet.csv")
+        test.to_csv("test_with_newTarget_predictions_CNNglobal_ResNet.csv")

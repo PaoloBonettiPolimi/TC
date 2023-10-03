@@ -130,3 +130,278 @@ dmypy.json
 data/training_real_tom_target.csv
 data/test_real_tom_target.csv
 data/validation_real_tom_target.csv
+./Paolo/scripts/target_train_dailymeans_Indian.csv
+./Paolo/scripts/FFNN_dailymean2_both_latlon.csv
+./Paolo/scripts/CNN_dailymean2_latlon_target2before.csv
+./Paolo/scripts/FFNN_dailymean2_latlon_target2before.csv
+./Paolo/scripts/FFNN_dailymean2_latlon_time.csv
+./Paolo/scripts/Unet_only_clim.csv
+./Paolo/scripts/Unet_dailymeans_v2.csv
+./Paolo/scripts/CNN_dailymean2_latlon_time.csv
+./Paolo/scripts/Unet_dailymean2_clim.csv
+./Paolo/scripts/target_dailymeans_Indian.csv
+./Paolo/scripts/Unet_dailymean2_latlon.csv
+./Paolo/scripts/Unet_dailymean2_latlon_time.csv
+./Paolo/scripts/CNN_dailymeans_v2.csv
+./Paolo/scripts/CNN_dailymean2_target2before.csv
+./Paolo/scripts/FFNN_dailymean2_latlon.csv
+./Paolo/scripts/FFNN_dailymean2_both.csv
+./Paolo/scripts/CNN_only_clim.csv
+./Paolo/scripts/trial.csv
+./Paolo/scripts/trial.csvNatlantic.csv
+./Paolo/scripts/trial_00.csv
+./Paolo/scripts/CNN_dailymean2_latlon.csv
+./Paolo/scripts/FFNN_dailymean2_target2before.csv
+./Paolo/scripts/Unet_dailymean2_target2before.csv
+./Paolo/scripts/CNN_dailymean2_clim.csv
+./Paolo/scripts/trial.csvSindian.csv
+./Paolo/scripts/Unet_dailymean2_latlon_target2before.csv
+./Paolo/data/mutiple_regions/target_train_dailymeans_Natlantic.csv
+./Paolo/data/mutiple_regions/val_dailymeans_Natlantic.csv
+./Paolo/data/mutiple_regions/train_dailymeans_NWpacific.csv
+./Paolo/data/mutiple_regions/target_train_dailymeans_Epacific.csv
+./Paolo/data/mutiple_regions/features_dailymeans_NWpacific.csv
+./Paolo/data/mutiple_regions/test_dailymeans_Sindian.csv
+./Paolo/data/mutiple_regions/test_dailymeans_Natlantic.csv
+./Paolo/data/mutiple_regions/target_train_dailymeans_Spacific.csv
+./Paolo/data/mutiple_regions/features_dailymeans_Sindian.csv
+./Paolo/data/mutiple_regions/val_dailymeans_Nindian.csv
+./Paolo/data/mutiple_regions/target_dailymeans_Natlantic.csv
+./Paolo/data/mutiple_regions/train_dailymeans_Sindian.csv
+./Paolo/data/mutiple_regions/test_dailymeans_Australia.csv
+./Paolo/data/mutiple_regions/target_dailymeans_Epacific.csv
+./Paolo/data/mutiple_regions/target_train_dailymeans_Sindian.csv
+./Paolo/data/mutiple_regions/features_dailymeans_Epacific.csv
+./Paolo/data/mutiple_regions/val_dailymeans_Australia.csv
+./Paolo/data/mutiple_regions/target_train_dailymeans_Australia.csv
+./Paolo/data/mutiple_regions/target_dailymeans_Nindian.csv
+./Paolo/data/mutiple_regions/target_dailymeans_Spacific.csv
+./Paolo/data/mutiple_regions/target_dailymeans_Australia.csv
+./Paolo/data/mutiple_regions/features_dailymeans_Spacific.csv
+./Paolo/data/mutiple_regions/val_dailymeans_Spacific.csv
+./Paolo/data/mutiple_regions/train_dailymeans_Australia.csv
+./Paolo/data/mutiple_regions/target_dailymeans_Sindian.csv
+./Paolo/data/mutiple_regions/features_dailymeans_Australia.csv
+./Paolo/data/mutiple_regions/train_dailymeans_Spacific.csv
+./Paolo/data/mutiple_regions/val_dailymeans_Epacific.csv
+./Paolo/data/mutiple_regions/train_dailymeans_Epacific.csv
+./Paolo/data/mutiple_regions/target_train_dailymeans_Nindian.csv
+./Paolo/data/mutiple_regions/features_dailymeans_Natlantic.csv
+./Paolo/data/mutiple_regions/train_dailymeans_Nindian.csv
+./Paolo/data/mutiple_regions/train_dailymeans_Natlantic.csv
+./Paolo/data/mutiple_regions/val_dailymeans_NWpacific.csv
+./Paolo/data/mutiple_regions/target_train_dailymeans_NWpacific.csv
+./Paolo/data/mutiple_regions/test_dailymeans_NWpacific.csv
+./Paolo/data/mutiple_regions/val_dailymeans_Sindian.csv
+./Paolo/data/mutiple_regions/features_dailymeans_Nindian.csv
+./Paolo/data/mutiple_regions/test_dailymeans_Spacific.csv
+./Paolo/data/mutiple_regions/test_dailymeans_Nindian.csv
+./Paolo/data/mutiple_regions/test_dailymeans_Epacific.csv
+./Paolo/data/mutiple_regions/target_dailymeans_NWpacific.csv
+./Paolo/data/multiple_regions_withIndices/test_dailymeans_Sindian.csv
+./Paolo/data/multiple_regions_withIndices/train_dailymeans_Sindian.csv
+./Paolo/data/multiple_regions_withIndices/target_train_dailymeans_Sindian.csv
+./Paolo/data/multiple_regions_withIndices/val_dailymeans_Sindian.csv
+./Paolo/Notebooks_newTarget/test_with_newTarget_predictions_GPI_SST.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/train_dailymeans_both.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/targets_all_new_dailyMeans_Atlantic.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/features_all_new_dailyMeans_Atlantic.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/train_00.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/train_dailymeans.csvz
+./Paolo/Notebooks_newTarget/GRIB extraction/test_dailymeans_both.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/features_all_new_dailyMeans.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/test_dailymeans.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/train_dailymeans.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/test_with_newTarget_predictions_clim.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/val_dailymeans.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/target_train_dailymeans_Atlantic.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/test_dailymeans_Atlantic.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/test_with_newTarget_predictions_onlyClim.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/train_dailymeans_both_target.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/test_with_newTarget_predictions_FFNN_noOversampling_daily.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/test_with_newTarget_predictions_unet_daily.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/train_dailymeans_Atlantic.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/val_dailymeans_both.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/test_with_newTarget_predictions_unet_only00.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/features_all_new.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/val_dailymeans_Atlantic.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/test_00.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/test_with_newTarget_predictions_daily.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/val_00.csv
+./Paolo/Notebooks_newTarget/GRIB extraction/test_with_newTarget_predictions_only00.csv
+./Paolo/Notebooks_newTarget/test_with_newTarget_predictions_onlyGPI.csv
+./.git/objects/95/7d3ac2e772210eea2d88ce397651a878ad64df
+./.git/objects/6f/9ce9fb13af4932c6d2ec329acdee8e211921f6
+./.git/objects/ac/c29610612b23ba1182ae2065c0fe294bb155d2
+./.git/objects/d7/736659eef723c4ac40bf67eb4d1468d1bd3999
+./.git/objects/d0/37664186ce55b41b44c56b6793b24a500e317c
+./.git/objects/49/13ad72923fa0f8693f5da1d9f2c00a8bf6d2e6
+./data/validation_real_tom_target.csv
+./data/training_real_tom_target.csv
+# Files over 4mb
+Paolo/scripts/target_train_dailymeans_Indian.csv
+Paolo/scripts/FFNN_dailymean2_both_latlon.csv
+Paolo/scripts/CNN_dailymean2_latlon_target2before.csv
+Paolo/scripts/FFNN_dailymean2_latlon_target2before.csv
+Paolo/scripts/FFNN_dailymean2_latlon_time.csv
+Paolo/scripts/Unet_only_clim.csv
+Paolo/scripts/Unet_dailymeans_v2.csv
+Paolo/scripts/CNN_dailymean2_latlon_time.csv
+Paolo/scripts/target_val_dailymeans_Indian.csv
+Paolo/scripts/Unet_dailymean2_clim.csv
+Paolo/scripts/target_dailymeans_Indian.csv
+Paolo/scripts/Unet_dailymean2_latlon.csv
+Paolo/scripts/Unet_dailymean2_latlon_time.csv
+Paolo/scripts/CNN_dailymeans_v2.csv
+Paolo/scripts/CNN_dailymean2_target2before.csv
+Paolo/scripts/FFNN_dailymean2_latlon.csv
+Paolo/scripts/FFNN_dailymean2_both.csv
+Paolo/scripts/CNN_only_clim.csv
+Paolo/scripts/trial.csv
+Paolo/scripts/trial.csvNatlantic.csv
+Paolo/scripts/trial_00.csv
+Paolo/scripts/CNN_dailymean2_latlon.csv
+Paolo/scripts/FFNN_dailymean2_target2before.csv
+Paolo/scripts/Unet_dailymean2_target2before.csv
+Paolo/scripts/CNN_dailymean2_clim.csv
+Paolo/scripts/trial.csvSindian.csv
+Paolo/scripts/target_test_dailymeans_Indian.csv
+Paolo/scripts/Unet_dailymean2_latlon_target2before.csv
+Paolo/data/test_target_img.pkl
+Paolo/data/Indices/full_indices.csv
+Paolo/data/train_target_img.pkl
+Paolo/data/val_target_img.pkl
+Paolo/data/mutiple_regions/target_test_dailymeans_Nindian.csv
+Paolo/data/mutiple_regions/target_train_dailymeans_Natlantic.csv
+Paolo/data/mutiple_regions/val_dailymeans_Natlantic.csv
+Paolo/data/mutiple_regions/train_dailymeans_NWpacific.csv
+Paolo/data/mutiple_regions/target_train_dailymeans_Epacific.csv
+Paolo/data/mutiple_regions/features_dailymeans_NWpacific.csv
+Paolo/data/mutiple_regions/test_dailymeans_Sindian.csv
+Paolo/data/mutiple_regions/test_dailymeans_Natlantic.csv
+Paolo/data/mutiple_regions/target_train_dailymeans_Spacific.csv
+Paolo/data/mutiple_regions/features_dailymeans_Sindian.csv
+Paolo/data/mutiple_regions/val_dailymeans_Nindian.csv
+Paolo/data/mutiple_regions/target_val_dailymeans_Australia.csv
+Paolo/data/mutiple_regions/target_dailymeans_Natlantic.csv
+Paolo/data/mutiple_regions/train_dailymeans_Sindian.csv
+Paolo/data/mutiple_regions/target_val_dailymeans_Nindian.csv
+Paolo/data/mutiple_regions/test_dailymeans_Australia.csv
+Paolo/data/mutiple_regions/target_dailymeans_Epacific.csv
+Paolo/data/mutiple_regions/target_val_dailymeans_Epacific.csv
+Paolo/data/mutiple_regions/target_train_dailymeans_Sindian.csv
+Paolo/data/mutiple_regions/features_dailymeans_Epacific.csv
+Paolo/data/mutiple_regions/val_dailymeans_Australia.csv
+Paolo/data/mutiple_regions/target_train_dailymeans_Australia.csv
+Paolo/data/mutiple_regions/target_dailymeans_Nindian.csv
+Paolo/data/mutiple_regions/target_val_dailymeans_Spacific.csv
+Paolo/data/mutiple_regions/target_dailymeans_Spacific.csv
+Paolo/data/mutiple_regions/target_test_dailymeans_NWpacific.csv
+Paolo/data/mutiple_regions/target_dailymeans_Australia.csv
+Paolo/data/mutiple_regions/target_val_dailymeans_Natlantic.csv
+Paolo/data/mutiple_regions/features_dailymeans_Spacific.csv
+Paolo/data/mutiple_regions/target_test_dailymeans_Epacific.csv
+Paolo/data/mutiple_regions/val_dailymeans_Spacific.csv
+Paolo/data/mutiple_regions/train_dailymeans_Australia.csv
+Paolo/data/mutiple_regions/target_dailymeans_Sindian.csv
+Paolo/data/mutiple_regions/features_dailymeans_Australia.csv
+Paolo/data/mutiple_regions/train_dailymeans_Spacific.csv
+Paolo/data/mutiple_regions/target_test_dailymeans_Natlantic.csv
+Paolo/data/mutiple_regions/val_dailymeans_Epacific.csv
+Paolo/data/mutiple_regions/target_test_dailymeans_Spacific.csv
+Paolo/data/mutiple_regions/train_dailymeans_Epacific.csv
+Paolo/data/mutiple_regions/target_train_dailymeans_Nindian.csv
+Paolo/data/mutiple_regions/target_val_dailymeans_NWpacific.csv
+Paolo/data/mutiple_regions/features_dailymeans_Natlantic.csv
+Paolo/data/mutiple_regions/target_val_dailymeans_Sindian.csv
+Paolo/data/mutiple_regions/train_dailymeans_Nindian.csv
+Paolo/data/mutiple_regions/train_dailymeans_Natlantic.csv
+Paolo/data/mutiple_regions/val_dailymeans_NWpacific.csv
+Paolo/data/mutiple_regions/target_train_dailymeans_NWpacific.csv
+Paolo/data/mutiple_regions/test_dailymeans_NWpacific.csv
+Paolo/data/mutiple_regions/val_dailymeans_Sindian.csv
+Paolo/data/mutiple_regions/features_dailymeans_Nindian.csv
+Paolo/data/mutiple_regions/test_dailymeans_Spacific.csv
+Paolo/data/mutiple_regions/test_dailymeans_Nindian.csv
+Paolo/data/mutiple_regions/test_dailymeans_Epacific.csv
+Paolo/data/mutiple_regions/target_test_dailymeans_Sindian.csv
+Paolo/data/mutiple_regions/target_test_dailymeans_Australia.csv
+Paolo/data/mutiple_regions/target_dailymeans_NWpacific.csv
+Paolo/data/multiple_regions_withIndices/test_dailymeans_Sindian.csv
+Paolo/data/multiple_regions_withIndices/train_dailymeans_Sindian.csv
+Paolo/data/multiple_regions_withIndices/target_train_dailymeans_Sindian.csv
+Paolo/data/multiple_regions_withIndices/target_val_dailymeans_Sindian.csv
+Paolo/data/multiple_regions_withIndices/val_dailymeans_Sindian.csv
+Paolo/data/multiple_regions_withIndices/target_test_dailymeans_Sindian.csv
+Paolo/Notebooks_newTarget/7) LSTM on 377 - extensive.ipynb
+Paolo/Notebooks_newTarget/5.0) AdaBoost-ExtraTrees different lags-noOversampling.ipynb
+Paolo/Notebooks_newTarget/test_with_newTarget_predictions_GPI_SST.csv
+Paolo/Notebooks_newTarget/5.0) FFNN different lags-noOversampling-tests.ipynb
+Paolo/Notebooks_newTarget/6) Larger images.ipynb
+Paolo/Notebooks_newTarget/5.0) FFNN different lags.ipynb
+Paolo/Notebooks_newTarget/5.2) CNN image to image-different lags-withClim.ipynb
+Paolo/Notebooks_newTarget/5.0) FFNN different lags-noOversampling.ipynb
+Paolo/Notebooks_newTarget/5.3) CNN image to image-different lags-unet.ipynb
+Paolo/Notebooks_newTarget/7) CNN image to image-sequentiality with past X.ipynb
+Paolo/Notebooks_newTarget/GRIB extraction/train_dailymeans_both.csv
+Paolo/Notebooks_newTarget/GRIB extraction/FFNN_CNN_Unet UTC00 features.ipynb
+Paolo/Notebooks_newTarget/GRIB extraction/targets_all_new_dailyMeans_Atlantic.csv
+Paolo/Notebooks_newTarget/GRIB extraction/features_all_new_dailyMeans_Atlantic.csv
+Paolo/Notebooks_newTarget/GRIB extraction/train_00.csv
+Paolo/Notebooks_newTarget/GRIB extraction/train_dailymeans.csvz
+Paolo/Notebooks_newTarget/GRIB extraction/target_val_dailymeans_Atlantic.csv
+Paolo/Notebooks_newTarget/GRIB extraction/test_dailymeans_both.csv
+Paolo/Notebooks_newTarget/GRIB extraction/features_all_new_dailyMeans.csv
+Paolo/Notebooks_newTarget/GRIB extraction/test_dailymeans.csv
+Paolo/Notebooks_newTarget/GRIB extraction/test_dailymeans_both_target.csv
+Paolo/Notebooks_newTarget/GRIB extraction/train_dailymeans.csv
+Paolo/Notebooks_newTarget/GRIB extraction/val_dailymeans_both_target.csv
+Paolo/Notebooks_newTarget/GRIB extraction/test_with_newTarget_predictions_clim.csv
+Paolo/Notebooks_newTarget/GRIB extraction/val_dailymeans.csv
+Paolo/Notebooks_newTarget/GRIB extraction/target_train_dailymeans_Atlantic.csv
+Paolo/Notebooks_newTarget/GRIB extraction/test_dailymeans_Atlantic.csv
+Paolo/Notebooks_newTarget/GRIB extraction/test_with_newTarget_predictions_onlyClim.csv
+Paolo/Notebooks_newTarget/GRIB extraction/train_dailymeans_both_target.csv
+Paolo/Notebooks_newTarget/GRIB extraction/obs_2022_48_17.grb
+Paolo/Notebooks_newTarget/GRIB extraction/test_with_newTarget_predictions_FFNN_noOversampling_daily.csv
+Paolo/Notebooks_newTarget/GRIB extraction/test_with_newTarget_predictions_unet_daily.csv
+Paolo/Notebooks_newTarget/GRIB extraction/train_dailymeans_Atlantic.csv
+Paolo/Notebooks_newTarget/GRIB extraction/.ipynb_checkpoints/FFNN_CNN_Unet UTC00 features-checkpoint.ipynb
+Paolo/Notebooks_newTarget/GRIB extraction/val_dailymeans_both.csv
+Paolo/Notebooks_newTarget/GRIB extraction/test_with_newTarget_predictions_unet_only00.csv
+Paolo/Notebooks_newTarget/GRIB extraction/features_all_new.csv
+Paolo/Notebooks_newTarget/GRIB extraction/val_dailymeans_Atlantic.csv
+Paolo/Notebooks_newTarget/GRIB extraction/test_00.csv
+Paolo/Notebooks_newTarget/GRIB extraction/test_with_newTarget_predictions_daily.csv
+Paolo/Notebooks_newTarget/GRIB extraction/target_test_dailymeans_Atlantic.csv
+Paolo/Notebooks_newTarget/GRIB extraction/val_00.csv
+Paolo/Notebooks_newTarget/GRIB extraction/test_with_newTarget_predictions_only00.csv
+Paolo/Notebooks_newTarget/3) CNN image to image.ipynb
+Paolo/Notebooks_newTarget/test_with_newTarget_predictions_onlyGPI.csv
+Paolo/Notebooks_newTarget/.ipynb_checkpoints/5.1) CNN image to image-different lags-checkpoint.ipynb
+Paolo/Notebooks_newTarget/.ipynb_checkpoints/7) LSTM on 377 - extensive-checkpoint.ipynb
+Paolo/Notebooks_newTarget/.ipynb_checkpoints/5.0) FFNN different lags-checkpoint.ipynb
+Paolo/Notebooks_newTarget/.ipynb_checkpoints/5.2) CNN image to image-different lags-withClim-checkpoint.ipynb
+Paolo/Notebooks_newTarget/.ipynb_checkpoints/3) CNN image to image-checkpoint.ipynb
+Paolo/Notebooks_newTarget/.ipynb_checkpoints/5.0) FFNN different lags-noOversampling-tests-checkpoint.ipynb
+Paolo/Notebooks_newTarget/.ipynb_checkpoints/5.0) FFNN different lags-noOversampling-checkpoint.ipynb
+Paolo/Notebooks_newTarget/.ipynb_checkpoints/5.3) CNN image to image-different lags-unet-checkpoint.ipynb
+Paolo/Notebooks_newTarget/.ipynb_checkpoints/7) LSTM on 377-checkpoint.ipynb
+Paolo/Notebooks_newTarget/.ipynb_checkpoints/7) CNN image to image-sequentiality with past X-checkpoint.ipynb
+Paolo/Notebooks_newTarget/.ipynb_checkpoints/6) Larger images-checkpoint.ipynb
+Paolo/Notebooks_newTarget/.ipynb_checkpoints/7) LSTM on 377 - only last prediction-checkpoint.ipynb
+Paolo/Notebooks_newTarget/.ipynb_checkpoints/5.0) AdaBoost-ExtraTrees different lags-noOversampling-checkpoint.ipynb
+Paolo/Notebooks_newTarget/7) LSTM on 377 - only last prediction.ipynb
+Paolo/Notebooks_newTarget/7) LSTM on 377.ipynb
+Paolo/Notebooks_newTarget/5.1) CNN image to image-different lags.ipynb
+Paolo/notebooks/7) CNN image.ipynb
+Paolo/notebooks/512n_1l_05dropout_std_results.csv
+Paolo/notebooks/.ipynb_checkpoints/7) CNN image-checkpoint.ipynb
+Paolo/notebooks/shap_values.pickle
+Paolo/notebooks/shap_values_std.pickle
+data/pred_new.csv
+data/test_real_tom_target.csv
+data/validation_real_tom_target.csv
+data/training_real_tom_target.csv
+notebooks/feedforward_realtarget/.ipynb_checkpoints/SHapley_Additive_exPlanations (1)-checkpoint.ipynb
+notebooks/feedforward_realtarget/SHapley_Additive_exPlanations (1).ipynb
