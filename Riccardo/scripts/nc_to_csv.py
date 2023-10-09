@@ -11,17 +11,10 @@ def extract_from_nc(min_year, max_year, min_lat, max_lat, min_lon, max_lon, orig
 
         for var in variables:
             if origin == 'features':
-                # ds = xr.open_dataset(
-                #     '/Users/paolo/Desktop/predictors_v2_dailymean/2d_clint_' + str(year) + '0101_' + str(
-                #         year) + '1231.grb',
-                #     engine='cfgrib', backend_kwargs={'filter_by_keys': {'shortName': var}})
                 ds = xr.open_dataset(
                     path_features + '/2d_clint_' + str(year) + '0101_' + str(year) + '1231.grb',
                     engine='cfgrib', backend_kwargs={'filter_by_keys': {'shortName': var}})
             else:
-                # ds = xr.open_dataset(
-                #     '/Users/paolo/Documents/TC_old/data/data_new_samples/target/2.5col_obs_' + str(year) + '_48_17.grb',
-                #     engine='cfgrib')
                 ds = xr.open_dataset(
                     path_target + '/2.5col_obs_' + str(year) + '_48_17.grb', engine='cfgrib')
             df = ds.to_dataframe().reset_index()
@@ -53,18 +46,11 @@ def extract_from_nc_cross(min_year, max_year, min_lat, max_lat, min_lon, max_lon
 
         for var in variables:
             if origin == 'features':
-                # ds = xr.open_dataset(
-                #     '/Users/paolo/Desktop/predictors_v2_dailymean/2d_clint_' + str(year) + '0101_' + str(
-                #         year) + '1231.grb',
-                #     engine='cfgrib', backend_kwargs={'filter_by_keys': {'shortName': var}})
                 ds = xr.open_dataset(
                     path_features + '/2d_clint_' + str(year) + '0101_' + str(
                         year) + '1231.grb',
                     engine='cfgrib', backend_kwargs={'filter_by_keys': {'shortName': var}})
             else:
-                # ds = xr.open_dataset(
-                #     '/Users/paolo/Documents/TC_old/data/data_new_samples/target/2.5col_obs_' + str(year) + '_48_17.grb',
-                #     engine='cfgrib')
                 ds = xr.open_dataset(
                     path_target + '/2.5col_obs_' + str(year) + '_48_17.grb',
                     engine='cfgrib')
