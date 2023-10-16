@@ -52,8 +52,7 @@ def extract_from_nc_cross(min_year, max_year, min_lat, max_lat, min_lon, max_lon
                     engine='cfgrib', backend_kwargs={'filter_by_keys': {'shortName': var}})
             else:
                 ds = xr.open_dataset(
-                    path_target + '/2.5col_obs_' + str(year) + '_48_17.grb',
-                    engine='cfgrib')
+                    path_target + '/2.5col_obs_' + str(year) + '_48_17.grb', engine='cfgrib')
             df = ds.to_dataframe().reset_index()
             df = df.loc[((df.latitude >= min_lat) & (df.longitude >= min_lon) & (df.latitude <= max_lat) & (
                     df.longitude <= max_lon)) |
@@ -78,6 +77,17 @@ def extract_from_nc_cross(min_year, max_year, min_lat, max_lat, min_lon, max_lon
 
 
 if __name__ == "__main__":
+    granularity = 1  # set it as 1 or 2.5
+    save_directory = ''
+    source_directory = ''
+    if granularity == 2.5:
+        save_directory = 'multiple_regions/'
+        source_directory = 'predictors_v2_dailymean/'
+    elif granularity == 1:
+        save_directory = 'multiple_regions_1/'
+        source_directory = 'predictors_v2_dailymean_1/'
+    base_savepath = '/Users/Utente/PycharmProjects/TC/Riccardo/data/' + save_directory
+    base_sourcepath = '/Users/Utente/Desktop/Tesi_TC/'
     parser = argparse.ArgumentParser()
     parser.add_argument("--min_lat", default=-30, type=float)
     parser.add_argument("--max_lat", default=0, type=float)
@@ -85,46 +95,29 @@ if __name__ == "__main__":
     parser.add_argument("--max_lon", default=90, type=float)
     parser.add_argument("--min_lon2", default=20, type=float)
     parser.add_argument("--max_lon2", default=90, type=float)
-    parser.add_argument("--min_year", default=1980)
-    parser.add_argument("--max_year", default=2022)
+    parser.add_argument("--min_year", default=1980, type=int)
+    parser.add_argument("--max_year", default=2022, type=int)
     parser.add_argument("--savepath_features",
-                        default='/Users/Utente/PycharmProjects/TC/Riccardo/data/multiple_regions/features_dailymeans_Sindian.csv')
+                        default=base_savepath + 'features_dailymeans_Sindian.csv')
     parser.add_argument("--savepath_features_train",
-                        default='/Users/Utente/PycharmProjects/TC/Riccardo/data/multiple_regions/train_dailymeans_Sindian.csv')
+                        default=base_savepath + 'train_dailymeans_Sindian.csv')
     parser.add_argument("--savepath_features_val",
-                        default='/Users/Utente/PycharmProjects/TC/Riccardo/data/multiple_regions/val_dailymeans_Sindian.csv')
+                        default=base_savepath + 'val_dailymeans_Sindian.csv')
     parser.add_argument("--savepath_features_test",
-                        default='/Users/Utente/PycharmProjects/TC/Riccardo/data/multiple_regions/test_dailymeans_Sindian.csv')
+                        default=base_savepath + 'test_dailymeans_Sindian.csv')
     parser.add_argument("--savepath_target",
-                        default='/Users/Utente/PycharmProjects/TC/Riccardo/data/multiple_regions/target_dailymeans_Sindian.csv')
+                        default=base_savepath + 'target_dailymeans_Sindian.csv')
     parser.add_argument("--savepath_target_train",
-                        default='/Users/Utente/PycharmProjects/TC/Riccardo/data/multiple_regions/target_train_dailymeans_Sindian.csv')
+                        default=base_savepath + 'target_train_dailymeans_Sindian.csv')
     parser.add_argument("--savepath_target_val",
-                        default='/Users/Utente/PycharmProjects/TC/Riccardo/data/multiple_regions/target_val_dailymeans_Sindian.csv')
+                        default=base_savepath + 'target_val_dailymeans_Sindian.csv')
     parser.add_argument("--savepath_target_test",
-                        default='/Users/Utente/PycharmProjects/TC/Riccardo/data/multiple_regions/target_test_dailymeans_Sindian.csv')
+                        default=base_savepath + 'target_test_dailymeans_Sindian.csv')
     parser.add_argument("--sourcepath_features",
-                        default='/Users/Utente/Desktop/Tesi_TC/predictors_v2_dailymean')
+                        default=base_sourcepath + source_directory)
     parser.add_argument("--sourcepath_target",
-                        default='/Users/Utente/Desktop/Tesi_TC/target')
+                        default=base_sourcepath + 'target')
     parser.add_argument("--crossing", default='False')
-    # parser.add_argument("--savepath_features",
-    #                     default='/Users/paolo/Documents/TC/Paolo/data/mutiple_regions/features_dailymeans_Sindian.csv')
-    # parser.add_argument("--savepath_features_train",
-    #                     default='/Users/paolo/Documents/TC/Paolo/data/mutiple_regions/train_dailymeans_Sindian.csv')
-    # parser.add_argument("--savepath_features_val",
-    #                     default='/Users/paolo/Documents/TC/Paolo/data/mutiple_regions/val_dailymeans_Sindian.csv')
-    # parser.add_argument("--savepath_features_test",
-    #                     default='/Users/paolo/Documents/TC/Paolo/data/mutiple_regions/test_dailymeans_Sindian.csv')
-    # parser.add_argument("--savepath_target",
-    #                     default='/Users/paolo/Documents/TC/Paolo/data/mutiple_regions/target_dailymeans_Sindian.csv')
-    # parser.add_argument("--savepath_target_train",
-    #                     default='/Users/paolo/Documents/TC/Paolo/data/mutiple_regions/target_train_dailymeans_Sindian.csv')
-    # parser.add_argument("--savepath_target_val",
-    #                     default='/Users/paolo/Documents/TC/Paolo/data/mutiple_regions/target_val_dailymeans_Sindian.csv')
-    # parser.add_argument("--savepath_target_test",
-    #                     default='/Users/paolo/Documents/TC/Paolo/data/mutiple_regions/target_test_dailymeans_Sindian.csv')
-    # parser.add_argument("--crossing", default='False')
 
     args = parser.parse_args()
     print(args)
@@ -138,8 +131,8 @@ if __name__ == "__main__":
                                        args.max_lon, args.min_lon2, args.max_lon2, 'features', args.sourcepath_features,
                                        args.sourcepath_target)
     else:
-        df_all = extract_from_nc(args.min_year, args.max_year, args.min_lat, args.max_lat, args.min_lon, args.max_lon,
-                                 'features', args.sourcepath_features, args.sourcepath_target)
+        df_all = extract_from_nc(args.min_year, args.max_year, args.min_lat, args.max_lat, args.min_lon,
+                                 args.max_lon, 'features', args.sourcepath_features, args.sourcepath_target)
 
     df_all = df_all.reset_index(drop=True)
     print(df_all)
