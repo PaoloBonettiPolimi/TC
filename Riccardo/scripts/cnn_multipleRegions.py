@@ -242,7 +242,7 @@ def preprocess_data(x_train, x_val, x_test, y_train, y_val, y_test, cols, standa
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data_path", default='/Users/Utente/PycharmProjects/TC/Riccardo/data/multiple_regions/')
+    parser.add_argument("--data_path", default='/home/b/b382633/TC_adds/csv_extracted/')
     parser.add_argument("--features_list", default=['vo','r','u_200','u_850','v_200','v_850','tcwv','sst','shear','lat','lon'])#, 'NAOP_S', 'BLOCK_S', 'NAOM_S', 'RIDGE_S', 'nino3', 'nino4',
     #   'nino34', 'nino12', 'indocW', 'indocE', 'AtlMDR', 'CarMDR', 'GulfMDR',
     #   'AtlSub', 'glob', '30_40N', 'weu', 'EOF1', 'EOF2', 'EOF3', 'Arctic',
@@ -251,7 +251,8 @@ if __name__ == "__main__":
     #   'NPD'])
     parser.add_argument("--model", default='Unet')
     parser.add_argument("--save", default='no')
-    parser.add_argument("--savepath", default='/Users/Utente/Desktop/tesi_TC/TC_predictions/multiple_areas/')
+    parser.add_argument("--savepath_model", default='/home/b/b382633/TC_adds/models/Unet/')
+    parser.add_argument("--savepath_prediction", default='/home/b/b382633/TC_adds/predictions/Unet/')
     parser.add_argument("--single_std", default='no')
 
     args = parser.parse_args()
@@ -370,7 +371,7 @@ if __name__ == "__main__":
 
                 if args.save=='yes':
                     x_test[i]['predictions_lag0'] = t_curr.reshape(-1,1)
-                    x_test[i].to_csv(args.savepath+areas[i]+'.csv')
+                    x_test[i].to_csv(args.savepath_prediction+areas[i]+'.csv')
 
         else:
             if args.model=='CNN':
@@ -417,8 +418,8 @@ if __name__ == "__main__":
                 z = np.zeros((lag,13,29,1))
                 if args.save=='yes':
                     x_test[i]['predictions_lag'+str(lag)] = np.concatenate((t_curr,z)).reshape(-1,1)
-                    x_test[i].to_csv(args.savepath+areas[i]+'.csv')
+                    x_test[i].to_csv(args.savepath_prediction+areas[i]+'.csv')
         
-        model.save(args.savepath+str(lag)+'_model.keras')
+        model.save(args.savepath_model+str(lag)+'_model.keras')
         keras.backend.clear_session()
 
