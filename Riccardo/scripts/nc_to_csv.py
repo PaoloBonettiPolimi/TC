@@ -2,39 +2,80 @@ import pandas as pd
 import xarray as xr
 import argparse
 import numpy as np
+from joblib import Parallel, delayed
 
+
+def extract_years_parallelized(year, min_lat, max_lat, min_lon, max_lon, origin, path_features, path_target):
+    df_full = pd.DataFrame()
+    for var in variables:
+        print(var)
+        if origin == 'features':
+            ds = xr.open_dataset(path_features + '/2d_clint_' + str(year) + '0101_' + str(year) + '1231.grb',
+                    engine='cfgrib', backend_kwargs={'filter_by_keys': {'shortName': var}})
+        else:
+            ds = xr.open_dataset(path_target + '/2.5col_obs_' + str(year) + '_48_17.grb', engine='cfgrib')
+        # print(ds)
+        # print(len(ds))
+        # print(df_full.shape)
+        # if len(ds) > 0:
+        df = ds.to_dataframe().reset_index()
+        df = df.loc[(df.latitude >= min_lat) & (df.longitude >= min_lon) & (df.latitude <= max_lat) & (
+                        df.longitude <= max_lon)]
+        df_full['latitude'] = df.reset_index().latitude
+        df_full['longitude'] = df.reset_index().longitude
+        df_full['time'] = df.reset_index().time
+        if var in ['u', 'v']:
+            df_red = df.loc[df.isobaricInhPa == 200, [var]].reset_index(drop=True).rename(
+                columns={'u': 'u_200', 'v': 'v_200'})
+            df_full = pd.concat([df_full, df_red], axis=1)
+            df_red = df.loc[df.isobaricInhPa == 850, [var]].reset_index(drop=True).rename(
+                columns={'u': 'u_850', 'v': 'v_850'})
+            df_full = pd.concat([df_full, df_red], axis=1)
+        else:
+            df_red = df.reset_index(drop=True).loc[:, [var]]
+            df_full = pd.concat([df_full, df_red], axis=1)
+#        print(df_full, flush=True)
+    return df_full
+                
 
 def extract_from_nc(min_year, max_year, min_lat, max_lat, min_lon, max_lon, origin, path_features, path_target):
     df_all = pd.DataFrame()
-    for year in range(min_year, max_year + 1):
-        df_full = pd.DataFrame()
+#    for year in range(min_year, max_year + 1):
+#         df_full = pd.DataFrame()
 
-        for var in variables:
-            if origin == 'features':
-                ds = xr.open_dataset(
-                    path_features + '/2d_clint_' + str(year) + '0101_' + str(year) + '1231.grb',
-                    engine='cfgrib', backend_kwargs={'filter_by_keys': {'shortName': var}})
-            else:
-                ds = xr.open_dataset(
-                    path_target + '/2.5col_obs_' + str(year) + '_48_17.grb', engine='cfgrib')
-            df = ds.to_dataframe().reset_index()
-            df = df.loc[(df.latitude >= min_lat) & (df.longitude >= min_lon) & (df.latitude <= max_lat) & (
-                    df.longitude <= max_lon)]
-            df_full['latitude'] = df.reset_index().latitude
-            df_full['longitude'] = df.reset_index().longitude
-            df_full['time'] = df.reset_index().time
-            if var in ['u', 'v']:
-                df_red = df.loc[df.isobaricInhPa == 200, [var]].reset_index(drop=True).rename(
-                    columns={'u': 'u_200', 'v': 'v_200'})
-                df_full = pd.concat([df_full, df_red], axis=1)
-                df_red = df.loc[df.isobaricInhPa == 850, [var]].reset_index(drop=True).rename(
-                    columns={'u': 'u_850', 'v': 'v_850'})
-                df_full = pd.concat([df_full, df_red], axis=1)
-            else:
-                df_red = df.reset_index(drop=True).loc[:, [var]]
-                df_full = pd.concat([df_full, df_red], axis=1)
-        df_all = pd.concat([df_all, df_full])
-        print(year)
+#         for var in variables:
+#             if origin == 'features':
+#                 ds = xr.open_dataset(
+#                     path_features + '/2d_clint_' + str(year) + '0101_' + str(year) + '1231.grb',
+#                     engine='cfgrib', backend_kwargs={'filter_by_keys': {'shortName': var}})
+#             else:
+#                 ds = xr.open_dataset(
+#                     path_target + '/2.5col_obs_' + str(year) + '_48_17.grb', engine='cfgrib')
+#             df = ds.to_dataframe().reset_index()
+#             df = df.loc[(df.latitude >= min_lat) & (df.longitude >= min_lon) & (df.latitude <= max_lat) & (
+#                     df.longitude <= max_lon)]
+#             df_full['latitude'] = df.reset_index().latitude
+#             df_full['longitude'] = df.reset_index().longitude
+#             df_full['time'] = df.reset_index().time
+#             if var in ['u', 'v']:
+#                 df_red = df.loc[df.isobaricInhPa == 200, [var]].reset_index(drop=True).rename(
+#                     columns={'u': 'u_200', 'v': 'v_200'})
+#                 df_full = pd.concat([df_full, df_red], axis=1)
+#                 df_red = df.loc[df.isobaricInhPa == 850, [var]].reset_index(drop=True).rename(
+#                     columns={'u': 'u_850', 'v': 'v_850'})
+#                 df_full = pd.concat([df_full, df_red], axis=1)
+#             else:
+#                 df_red = df.reset_index(drop=True).loc[:, [var]]
+#                 df_full = pd.concat([df_full, df_red], axis=1)
+
+
+    df_full_list = Parallel(n_jobs=3)(delayed(extract_years_parallelized)(
+        year, min_lat, max_lat, min_lon, max_lon, origin, path_features, path_target) for year in range(min_year, max_year + 1))
+    
+    # df_full_list = [extract_years_parallelized(
+    #     year, min_lat, max_lat, min_lon, max_lon, origin, path_features, path_target) for year in range(min_year, max_year + 1)]
+    for df_full in df_full_list:
+        df_all = pd.concat([df_all, df_full])    
     return df_all
 
 

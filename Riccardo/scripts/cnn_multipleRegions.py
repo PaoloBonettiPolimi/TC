@@ -19,7 +19,7 @@ from sklearn.metrics import ConfusionMatrixDisplay
 from sklearn.metrics import confusion_matrix
 from sklearn.utils.class_weight import compute_sample_weight
 
-from imblearn.over_sampling import SMOTE
+#from imblearn.over_sampling import SMOTE
 from collections import Counter
 import io
 import requests
@@ -82,7 +82,7 @@ def simple_unet_model(IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS):
     c2 = Dropout(0.1)(c2)
     c2 = Conv2D(32, (3, 3), activation='relu', kernel_initializer='he_normal', padding='same')(c2)
     p2 = MaxPooling2D((2, 2))(c2)
-     
+    
     c3 = Conv2D(64, (3, 3), activation='relu', kernel_initializer='he_normal', padding='same')(p2)
     c3 = Dropout(0.2)(c3)
     c3 = Conv2D(64, (3, 3), activation='relu', kernel_initializer='he_normal', padding='same')(c3)
@@ -243,12 +243,14 @@ def preprocess_data(x_train, x_val, x_test, y_train, y_val, y_test, cols, standa
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_path", default='/home/b/b382633/TC_adds/csv_extracted/')
-    parser.add_argument("--features_list", default=['vo','r','u_200','u_850','v_200','v_850','tcwv','sst','shear','lat','lon'])#, 'NAOP_S', 'BLOCK_S', 'NAOM_S', 'RIDGE_S', 'nino3', 'nino4',
-    #   'nino34', 'nino12', 'indocW', 'indocE', 'AtlMDR', 'CarMDR', 'GulfMDR',
-    #   'AtlSub', 'glob', '30_40N', 'weu', 'EOF1', 'EOF2', 'EOF3', 'Arctic',
-    #   'eq', '60N', '60S', 'weu', 'eeu', 'cus', 'NAO', 'EAT', 'ABLOCK', 'NAOP',
-    #   'BLOCK', 'NAOM', 'RIDGE', 'EAS', 'Arctic', 'weu', 'NAO_classic', 'PNA',
-    #   'NPD'])
+    parser.add_argument("--features_list", default=['vo','r','u_200','u_850','v_200','v_850','tcwv','sst','shear',
+      'comp95_0_latlon','comp95_1_latlon','comp95_2_latlon','comp95_3_latlon','comp95_4_latlon'])
+#    'NAOP_S', 'BLOCK_S', 'NAOM_S', 'RIDGE_S', 'nino3', 'nino4',
+#       'nino34', 'nino12', 'indocW', 'indocE', 'AtlMDR', 'CarMDR', 'GulfMDR',
+#       'AtlSub', 'glob', '30_40N', 'weu', 'EOF1', 'EOF2', 'EOF3', 'Arctic',
+#       'eq', '60N', '60S', 'weu.1', 'eeu', 'cus', 'NAO', 'EAT', 'ABLOCK',
+#       'NAOP', 'BLOCK', 'NAOM', 'RIDGE', 'EAS', 'Arctic.1', 'weu.2',
+#       'NAO_classic', 'PNA', 'NPD'])
     parser.add_argument("--model", default='Unet')
     parser.add_argument("--save", default='no')
     parser.add_argument("--savepath_model", default='/home/b/b382633/TC_adds/models/Unet/')
@@ -267,7 +269,7 @@ if __name__ == "__main__":
     # areas = ['Sindian','Natlantic','NWpacific','Australia','Nindian','Epacific','sPacific']
     areas = ['Sindian']
 
-    print(areas)
+    print(areas, flush=True)
 
     for area in areas:
         train_features_path = args.data_path+'train_dailymeans_'+area+'.csv'
@@ -308,12 +310,12 @@ if __name__ == "__main__":
             y_val_img = np.concatenate((y_val_img,y_val_img_curr),axis=0)
             y_test_img = np.concatenate((y_test_img,y_test_img_curr),axis=0)
 
-    print(y_train_img.shape)
-    print(y_val_img.shape)
-    print(y_test_img.shape)
-    print(train_img_std.shape)
-    print(val_img_std.shape)
-    print(test_img_std.shape)
+    print(y_train_img.shape, flush=True)
+    print(y_val_img.shape, flush=True)
+    print(y_test_img.shape, flush=True)
+    print(train_img_std.shape, flush=True)
+    print(val_img_std.shape, flush=True)
+    print(test_img_std.shape, flush=True)
 
     if args.model=='Unet':
         #pad_tns = tf.constant([[0,0], [1,2], [1,2], [0,0] ])
